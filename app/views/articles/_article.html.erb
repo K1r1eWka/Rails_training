@@ -1,0 +1,13 @@
+<ol>
+    <% @articles.each do |article| %>
+        <li>
+            <p>Author: <%= article.user.username if article.user %></p>
+            <strong>Title:</strong> <%= article.title %><br>
+            <strong>Description:</strong> <%= article.description %><br>
+            <%# article_path тут мы передаем данные которые есть у нашей статьи, и мы не указывем явно, что нам там нужно id, rails свм понимает и береб его из всех доступных параметров %>
+            <%= link_to "Show", article_path(article) %> 
+            <%= link_to "Edit", edit_article_path(article) %> 
+            <%= link_to "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </li><br>
+    <% end %>
+</ol>
