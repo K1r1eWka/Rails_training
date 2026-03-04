@@ -1,4 +1,9 @@
 <h1>All Bloggers</h1>
+
+<div class="flickr_pagination">
+    <%= will_paginate @users, :container => false %>
+</div>
+
 <% @users.each do |user|%>
     <div style="display: flex; flex-direction: column; align-items: center; background-color: lightgray; border-radius: 10px; margin: 10px 10px;">
         <h3><%= link_to user.username, user_path(user) %></h3>
@@ -9,3 +14,7 @@
         <small>Joined <%= time_ago_in_words(user.created_at)%> ago</small>
     </div>
 <% end %>
+
+<div class="flickr_pagination">
+    <%= will_paginate @users, :container => false %>
+</div>

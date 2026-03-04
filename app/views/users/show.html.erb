@@ -1,6 +1,16 @@
 <h1><%= @user.username%>'s profile</h1>
 <%= gravatar_for @user, size: 200 %>
 
+
 <h3>Articles</h3>
+
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
+
 <%= link_to "Edit your profile", edit_user_path(@user)%>
 <%= render "articles/article"%>
+
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
