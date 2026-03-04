@@ -1,7 +1,9 @@
 <ol>
     <% @articles.each do |article| %>
         <li>
-            <p>Author: <%= article.user.username if article.user %></p>
+            <% if article.user %>
+                <p>Author: <%= link_to article.user.username, user_path(article.user) %></p>
+            <% end %>
             <strong>Title:</strong> <%= article.title %><br>
             <strong>Description:</strong> <%= article.description %><br>
             <%# article_path тут мы передаем данные которые есть у нашей статьи, и мы не указывем явно, что нам там нужно id, rails свм понимает и береб его из всех доступных параметров %>
